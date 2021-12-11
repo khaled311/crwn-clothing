@@ -2,15 +2,17 @@ import "./styles.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
-// import { useStore } from "react-redux";
-// import userReducer from "../../redux/user/user.reducer";
 import store from "../../redux/store";
 import { useState } from "react";
+import CartIcon from "../CartIcon";
+import CartDropdown from "../CartDropdown";
 
 const Header = () => {
 	const [currentUser, setcurrentUser] = useState({});
+	const [cart, setCart] = useState({});
 	store.subscribe(() => {
 		setcurrentUser(store.getState().user.currentUser);
+		setCart(store.getState().cart);
 	});
 
 	return (
@@ -34,13 +36,11 @@ const Header = () => {
 						Sign in
 					</Link>
 				)}
+				<CartIcon />
 			</div>
+			{cart.hidden === false && <CartDropdown />}
 		</div>
 	);
 };
-
-// const mapStateToProps = (state) => ({
-// 	currentUser: state.user.currentUser,
-// });
 
 export default Header;
