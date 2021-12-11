@@ -1,6 +1,6 @@
 import "./styles.scss";
 
-const index = ({ id, name, price, imageUrl }) => {
+const CollectionItem = ({ id, name, price, imageUrl }) => {
 	return (
 		<div className="collection-item">
 			<div
@@ -17,4 +17,4 @@ const index = ({ id, name, price, imageUrl }) => {
 	);
 };
 
-export default index;
+export default CollectionItem;

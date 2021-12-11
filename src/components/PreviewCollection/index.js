@@ -1,7 +1,7 @@
 import "./styles.scss";
 import CollectionItem from "../CollectionItem";
 
-const index = ({ title, items }) => {
+const PreviewCollection = ({ title, items }) => {
 	return (
 		<div className="collection-preview">
 			<h1 className="title">{title.toUpperCase()}</h1>
@@ -16,4 +16,4 @@ const index = ({ title, items }) => {
 	);
 };
 
-export default index;
+export default PreviewCollection;
