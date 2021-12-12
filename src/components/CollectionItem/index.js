@@ -1,6 +1,12 @@
+import { useStore } from "react-redux";
+import { addItem } from "../../redux/cart/cart.actions";
+import CustomButton from "../CustomButton";
 import "./styles.scss";
 
-const CollectionItem = ({ id, name, price, imageUrl }) => {
+const CollectionItem = ({ item }) => {
+	const { dispatch } = useStore();
+	const { name, price, imageUrl } = item;
+
 	return (
 		<div className="collection-item">
 			<div
@@ -13,6 +19,9 @@ const CollectionItem = ({ id, name, price, imageUrl }) => {
 				<div className="name">{name}</div>
 				<div className="price">{price}</div>
 			</div>
+			<CustomButton onClick={() => dispatch(addItem(item))} inverted>
+				Add to cart
+			</CustomButton>
 		</div>
 	);
 };
